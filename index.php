@@ -1,32 +1,44 @@
-<?php
-
-/**
- * @package    Joomla.Site
- *
- * @copyright  (C) 2005 Open Source Matters, Inc. <https://www.joomla.org>
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
- */
-
-// NOTE: This file should remain compatible with PHP 5.2 to allow us to run our PHP minimum check and show a friendly error message
-
-// Define the application's minimum supported PHP version as a constant so it can be referenced within the application.
-define('JOOMLA_MINIMUM_PHP', '8.1.0');
-
-if (version_compare(PHP_VERSION, JOOMLA_MINIMUM_PHP, '<')) {
-    die(
-        str_replace(
-            '{{phpversion}}',
-            JOOMLA_MINIMUM_PHP,
-            file_get_contents(dirname(__FILE__) . '/includes/incompatible.html')
-        )
-    );
-}
-
-/**
- * Constant that is checked in included files to prevent direct access.
- * define() is used rather than "const" to not error for PHP 5.2 and lower
- */
-define('_JEXEC', 1);
-
-// Run the application - All executable code should be triggered through this file
-require_once dirname(__FILE__) . '/includes/app.php';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+        }
+        main {
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #008cba;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005f73;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Simple Website</h1>
+    </header>
+    <main>
+        <p>This is a basic website with a button.</p>
+        <button onclick="alert('Hello, World!')">Click Me</button>
+    </main>
+</body>
+</html>
